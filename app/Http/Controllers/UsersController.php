@@ -25,7 +25,7 @@ class UsersController extends Controller {
         $email = $req->input('email');
         
         if(User::where('username', $username)->exists()){
-            return $username;
+            return response()->json(['status' => 'false']);
         }else{
             $user = new User();
             $user->user_id=$this->quickRandom();
